@@ -1,0 +1,59 @@
+---
+title: Glyphs
+description: Ambient floating characters that drift and flicker.
+icon: TextAa
+---
+
+## Preview
+
+<GlyphsPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createGlyphs } from 'syaivo';
+
+const effect = createGlyphs({
+  color: ['rgba(0,255,65,0.5)', 'rgba(255,176,0,0.4)'],
+  count: 50,
+  fontSize: 14,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { Glyphs } from 'syaivo/react';
+
+<Glyphs
+  color={['rgba(0,255,65,0.5)', 'rgba(255,176,0,0.4)']}
+  count={50}
+  fontSize={14}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `charset` | `string` | `"01/\\|-.:#@*+=>\<%$"` | Characters to randomly pick from |
+| `color` | `string \| string[]` | `"rgba(255,255,255,0.12)"` | Glyph color(s) |
+| `backgroundColor` | `string` | `"transparent"` | Canvas background |
+| `count` | `number` | `40` | Number of floating glyphs |
+| `minSpeed` | `number` | `0.5` | Min drift speed (px/s) |
+| `maxSpeed` | `number` | `1.5` | Max drift speed (px/s) |
+| `minOpacity` | `number` | `0.04` | Min glyph opacity |
+| `maxOpacity` | `number` | `0.18` | Max glyph opacity |
+| `fontSize` | `number` | `14` | Font size (px) |
+| `fontFamily` | `string` | `"monospace"` | Font family |
+| `minFlickerInterval` | `number` | `40` | Min frames between character changes |
+| `maxFlickerInterval` | `number` | `120` | Max frames between character changes |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ count: 80, fontSize: 18 });
+```

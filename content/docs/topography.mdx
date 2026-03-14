@@ -1,0 +1,57 @@
+---
+title: Topography
+description: Animated contour map lines with noise-based terrain.
+icon: Mountains
+---
+
+## Preview
+
+<TopographyPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createTopography } from 'syaivo';
+
+const effect = createTopography({
+  lineColor: 'rgba(165,243,252,0.2)',
+  backgroundColor: '#0a0a0a',
+  levels: 14,
+  speed: 0.3,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { Topography } from 'syaivo/react';
+
+<Topography
+  lineColor="rgba(165,243,252,0.2)"
+  backgroundColor="#0a0a0a"
+  levels={14}
+  speed={0.3}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `lineColor` | `string` | `"rgba(255,255,255,0.25)"` | Contour line color |
+| `backgroundColor` | `string` | `"transparent"` | Canvas background |
+| `detail` | `number` | `10` | Grid cell size (4–40). Smaller = smoother |
+| `levels` | `number` | `14` | Number of contour thresholds |
+| `lineWidth` | `number` | `0.8` | Stroke width (CSS px) |
+| `speed` | `number` | `0.4` | Animation speed (0–0.8) |
+| `noiseScale` | `number` | `0.004` | Noise feature scale (0.002–0.012) |
+| `warpStrength` | `number` | `0.5` | Domain warp strength (0–1.5) |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ speed: 0.6, levels: 20 });
+```

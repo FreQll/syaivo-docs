@@ -1,0 +1,55 @@
+---
+title: Particles
+description: Floating connected dots with proximity links.
+icon: Sparkle
+---
+
+## Preview
+
+<ParticlesPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createParticles } from 'syaivo';
+
+const effect = createParticles({
+  color: '#a5f3fc',
+  count: 120,
+  mouseInteraction: true,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { Particles } from 'syaivo/react';
+
+<Particles
+  color="#a5f3fc"
+  count={120}
+  mouseInteraction
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `color` | `string \| string[]` | `"rgba(255,255,255,0.6)"` | Particle color(s) |
+| `backgroundColor` | `string` | `"transparent"` | Canvas background |
+| `count` | `number` | `80` | Number of particles |
+| `minRadius` | `number` | `1` | Min particle radius (px) |
+| `maxRadius` | `number` | `3` | Max particle radius (px) |
+| `maxSpeed` | `number` | `30` | Max speed (px/s) |
+| `mouseInteraction` | `boolean` | `false` | Enable mouse repulsion |
+| `mouseRadius` | `number` | `100` | Repulsion radius (px) |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ count: 200, color: '#f0abfc' });
+```

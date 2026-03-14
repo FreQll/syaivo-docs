@@ -1,0 +1,57 @@
+---
+title: Waves
+description: Layered sine-wave ribbons.
+icon: WaveSine
+---
+
+## Preview
+
+<WavesPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createWaves } from 'syaivo';
+
+const effect = createWaves({
+  colors: ['rgba(59,130,246,0.5)', 'rgba(99,102,241,0.4)', 'rgba(139,92,246,0.3)'],
+  layers: 3,
+  amplitude: 0.1,
+  speed: 0.8,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { Waves } from 'syaivo/react';
+
+<Waves
+  colors={['rgba(59,130,246,0.5)', 'rgba(99,102,241,0.4)', 'rgba(139,92,246,0.3)']}
+  layers={3}
+  amplitude={0.1}
+  speed={0.8}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `colors` | `string[]` | 3 blue tones | Wave line/fill colors |
+| `backgroundColor` | `string` | `"transparent"` | Canvas background |
+| `layers` | `number` | `3` | Number of wave layers |
+| `amplitude` | `number` | `0.08` | Amplitude as fraction of height |
+| `frequency` | `number` | `1.5` | Cycles per canvas width |
+| `speed` | `number` | `1` | Animation speed multiplier |
+| `filled` | `boolean` | `true` | Fill waves instead of stroking |
+| `lineWidth` | `number` | `2` | Stroke width (when `filled=false`) |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ amplitude: 0.15, speed: 1.2 });
+```
