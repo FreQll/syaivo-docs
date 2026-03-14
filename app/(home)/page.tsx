@@ -1,6 +1,6 @@
 "use client";
 
-import { Particles, Waves, Topography, Glyphs } from "syaivo/react";
+import { Glyphs } from "syaivo/react";
 import Link from "next/link";
 
 // const EFFECTS = [
@@ -34,18 +34,6 @@ export default function HomePage() {
       className="relative flex min-h-screen flex-col overflow-hidden"
       style={{ background: "#030303", fontFamily: "'DM Sans', sans-serif" }}
     >
-      {/* ── Ambient particle background ─────────────────────────── */}
-      <Particles
-        color="rgba(255,238,145,0.10)"
-        backgroundColor="transparent"
-        count={50}
-        maxRadius={1.5}
-        maxSpeed={8}
-        mouseInteraction
-        mouseRadius={150}
-        style={{ position: "fixed", inset: 0, zIndex: 0 }}
-      />
-
       {/* ── Ambient glyphs background ─────────────────────────── */}
       <Glyphs
         color="rgba(255,238,145,0.5)"
