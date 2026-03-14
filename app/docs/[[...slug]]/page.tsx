@@ -11,6 +11,9 @@ import { ParticlesPreview } from '@/components/particles-preview';
 import { WavesPreview } from '@/components/waves-preview';
 import { TopographyPreview } from '@/components/topography-preview';
 import { GlyphsPreview } from '@/components/glyphs-preview';
+import { MeshGradientPreview } from '@/components/mesh-gradient-preview';
+import { AuroraPreview } from '@/components/aurora-preview';
+import * as PhosphorIcons from '@phosphor-icons/react/dist/ssr';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -26,7 +29,7 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents, ParticlesPreview, WavesPreview, TopographyPreview, GlyphsPreview }} />
+        <MDX components={{ ...PhosphorIcons, ...defaultMdxComponents, ParticlesPreview, WavesPreview, TopographyPreview, GlyphsPreview, MeshGradientPreview, AuroraPreview }} />
       </DocsBody>
     </DocsPage>
   );

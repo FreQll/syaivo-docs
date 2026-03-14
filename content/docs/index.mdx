@@ -1,13 +1,13 @@
 ---
 title: Getting Started
-description: Install syaivo and add animated backgrounds to your site in minutes.
+description: Install syaivo and add animated backgrounds/effects to your site in minutes.
 icon: RocketLaunch
 ---
 
-<Callout type="warn">
-  **syaivo is currently in alpha.** APIs may change between releases. We're
-  building in public — feedback and contributions are welcome!
-</Callout>
+<Card icon={<Bulldozer />} title="syaivo is currently in alpha">
+  APIs may change between releases. We're building in public — feedback and
+  contributions are welcome!
+</Card>
 
 ## Installation
 
@@ -28,10 +28,10 @@ yarn add syaivo
 Every effect follows the same pattern: create → mount → destroy.
 
 ```ts
-import { createParticles } from 'syaivo';
+import { createParticles } from "syaivo";
 
-const effect = createParticles({ color: '#a5f3fc', count: 120 });
-effect.mount(document.getElementById('hero')!);
+const effect = createParticles({ color: "#a5f3fc", count: 120 });
+effect.mount(document.getElementById("hero")!);
 
 // Later:
 effect.destroy();
@@ -40,11 +40,11 @@ effect.destroy();
 ## Quick Start (React)
 
 ```tsx
-import { Particles } from 'syaivo/react';
+import { Particles } from "syaivo/react";
 
 export function Hero() {
   return (
-    <div style={{ position: 'relative', height: '100vh' }}>
+    <div style={{ position: "relative", height: "100vh" }}>
       <Particles color="#a5f3fc" count={120} />
       <h1>Hello</h1>
     </div>
@@ -54,11 +54,30 @@ export function Hero() {
 
 ## Available Effects
 
-| Effect | Description |
-|--------|-------------|
-| [Particles](/docs/particles) | Floating connected dots with proximity links |
-| [Waves](/docs/waves) | Layered sine-wave ribbons |
-| [Topography](/docs/topography) | Animated contour map lines |
+<Cards>
+  <Card icon={<Sparkle />} href="/docs/particles" title="Particles">
+    Floating connected dots with proximity links.
+  </Card>
+  <Card icon={<WaveSine />} href="/docs/waves" title="Waves">
+    Layered sine-wave ribbons.
+  </Card>
+  <Card icon={<Mountains />} href="/docs/topography" title="Topography">
+    Animated contour map lines with noise-based terrain.
+  </Card>
+  <Card icon={<TextAa />} href="/docs/glyphs" title="Glyphs">
+    Ambient floating characters.
+  </Card>
+  <Card
+    icon={<CirclesThreePlus />}
+    href="/docs/mesh-gradient"
+    title="Mesh Gradient"
+  >
+    Animated mesh gradient with drifting control points.
+  </Card>
+  <Card icon={<CloudSun />} href="/docs/aurora" title="Aurora">
+    Shimmering aurora borealis light curtains.
+  </Card>
+</Cards>
 
 All effects are framework-agnostic, tree-shakeable, and have zero runtime dependencies.
 

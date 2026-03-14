@@ -1,0 +1,59 @@
+---
+title: Aurora
+description: Shimmering aurora borealis light curtains.
+icon: CloudSun
+---
+
+## Preview
+
+<AuroraPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createAurora } from 'syaivo';
+
+const effect = createAurora({
+  backgroundColor: '#0a0a0a',
+  curtains: 5,
+  waveAmplitude: 0.12,
+  speed: 1,
+  opacity: 0.5,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { Aurora } from 'syaivo/react';
+
+<Aurora
+  backgroundColor="#0a0a0a"
+  curtains={5}
+  waveAmplitude={0.12}
+  speed={1}
+  opacity={0.5}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `colors` | `string[]` | Aurora tones | Curtain colors (green, teal, blue, purple) |
+| `backgroundColor` | `string` | `"#0a0a0a"` | Canvas background |
+| `curtains` | `number` | `5` | Number of light curtains |
+| `waveAmplitude` | `number` | `0.12` | Horizontal wave amplitude (fraction of width) |
+| `curtainWidth` | `number` | `0.35` | Curtain width (fraction of width) |
+| `speed` | `number` | `1` | Animation speed multiplier |
+| `opacity` | `number` | `0.5` | Global opacity for aurora layer |
+| `scanlines` | `boolean` | `false` | Add horizontal scanlines for CRT/retro look |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ curtains: 7, opacity: 0.7 });
+```

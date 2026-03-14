@@ -4,9 +4,11 @@
     "---Introduction---",
     "index",
     "---Effects---",
-    "particles",
-    "waves",
     "topography",
-    "glyphs"
+    "aurora",
+    "glyphs",
+    "mesh-gradient",
+    "waves",
+    "particles"
   ]
 }

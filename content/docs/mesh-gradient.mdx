@@ -1,0 +1,54 @@
+---
+title: Mesh Gradient
+description: Animated mesh gradient with drifting control points.
+icon: CirclesThreePlus
+---
+
+## Preview
+
+<MeshGradientPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createMeshGradient } from 'syaivo';
+
+const effect = createMeshGradient({
+  backgroundColor: '#0a0a0a',
+  points: 6,
+  distortion: 0.4,
+  speed: 0.2,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { MeshGradient } from 'syaivo/react';
+
+<MeshGradient
+  backgroundColor="#0a0a0a"
+  points={6}
+  distortion={0.4}
+  speed={0.2}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `colors` | `string[]` | Vibrant palette | Colors for mesh control points |
+| `backgroundColor` | `string` | `"#0a0a0a"` | Canvas background |
+| `points` | `number` | `6` | Number of control points |
+| `distortion` | `number` | `0.4` | How far points drift from base (0–1) |
+| `speed` | `number` | `0.2` | Animation speed multiplier |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ points: 8, distortion: 0.6 });
+```
