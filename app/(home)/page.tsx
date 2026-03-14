@@ -3,30 +3,30 @@
 import { Particles, Waves, Topography, Glyphs } from "syaivo/react";
 import Link from "next/link";
 
-const EFFECTS = [
-  {
-    name: "Particles",
-    description:
-      "Floating dots with proximity connections and mouse repulsion.",
-    href: "/docs/particles",
-  },
-  {
-    name: "Waves",
-    description:
-      "Layered sine-wave ribbons with configurable amplitude and speed.",
-    href: "/docs/waves",
-  },
-  {
-    name: "Topography",
-    description: "Animated contour-map lines driven by simplex noise.",
-    href: "/docs/topography",
-  },
-  {
-    name: "Glyphs",
-    description: "Ambient floating characters that drift and flicker softly.",
-    href: "/docs/glyphs",
-  },
-];
+// const EFFECTS = [
+//   {
+//     name: "Particles",
+//     description:
+//       "Floating dots with proximity connections and mouse repulsion.",
+//     href: "/docs/particles",
+//   },
+//   {
+//     name: "Waves",
+//     description:
+//       "Layered sine-wave ribbons with configurable amplitude and speed.",
+//     href: "/docs/waves",
+//   },
+//   {
+//     name: "Topography",
+//     description: "Animated contour-map lines driven by simplex noise.",
+//     href: "/docs/topography",
+//   },
+//   {
+//     name: "Glyphs",
+//     description: "Ambient floating characters that drift and flicker softly.",
+//     href: "/docs/glyphs",
+//   },
+// ];
 
 export default function HomePage() {
   return (
@@ -69,7 +69,10 @@ export default function HomePage() {
       />
 
       {/* ── Page content ────────────────────────────────────────── */}
-      <div className="relative flex min-h-screen flex-col" style={{ zIndex: 2 }}>
+      <div
+        className="relative flex min-h-screen flex-col"
+        style={{ zIndex: 2 }}
+      >
         {/* Nav */}
         <nav
           className="flex items-center justify-between px-6 py-6 sm:px-10"
@@ -97,7 +100,7 @@ export default function HomePage() {
               Docs
             </Link>
             <a
-              href="https://github.com/nicepkg/syaivo"
+              href="https://github.com/FreQll/syaivo"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-white/40 transition-colors hover:text-white/70"
@@ -163,7 +166,7 @@ export default function HomePage() {
               </span>
             </Link>
             <a
-              href="https://github.com/nicepkg/syaivo"
+              href="https://github.com/FreQll/syaivo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg border border-white/8 bg-white/2 px-6 py-2.5 text-[13px] font-normal tracking-wide text-white/50 transition-all duration-200 hover:border-white/15 hover:bg-white/4 hover:text-white/70"
