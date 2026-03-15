@@ -109,7 +109,7 @@ export function CyberGridPreview() {
       <CyberGrid
         effectRef={effectRef}
         gridColor="#ff80ff"
-        backgroundColor="#001a33"
+        backgroundColor="#010024"
         intensity={intensity}
         anchor={anchor}
         fov={fov}
