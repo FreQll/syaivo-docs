@@ -8,10 +8,10 @@
     "aurora",
     "glyphs",
     "mesh-gradient",
-    "waves",
-    "particles",
     "cybergrid",
     "dither",
-    "hyper-jump"
+    "hyper-jump",
+    "waves",
+    "particles"
   ]
 }
