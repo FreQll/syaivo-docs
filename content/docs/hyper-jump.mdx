@@ -1,0 +1,58 @@
+---
+title: Hyper Jump
+description: Pixelated tunnel of streaking light pixels.
+icon: ShootingStar
+---
+
+## Preview
+
+<HyperJumpPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createHyperJump } from 'syaivo';
+
+const effect = createHyperJump({
+  colors: ['#a5f3fc'],
+  count: 400,
+  speed: 1,
+  trailSegments: 6,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { HyperJump } from 'syaivo/react';
+
+<HyperJump
+  colors={['#a5f3fc']}
+  count={400}
+  speed={1}
+  trailSegments={6}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `colors` | `string[]` | `["#a5f3fc"]` | Up to 3 pixel colors |
+| `backgroundColor` | `string` | `"#0a0a0a"` | Canvas background |
+| `count` | `number` | `400` | Number of pixels in the tunnel |
+| `minSize` | `number` | `1` | Minimum pixel size (px) |
+| `maxSize` | `number` | `6` | Maximum pixel size at edges (px) |
+| `speed` | `number` | `1` | Base outward speed multiplier |
+| `trailSegments` | `number` | `6` | Trail segments behind each pixel |
+| `centerX` | `number` | `0.5` | Horizontal center (0–1) |
+| `centerY` | `number` | `0.5` | Vertical center (0–1) |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ count: 600, speed: 2 });
+```

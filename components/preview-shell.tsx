@@ -98,3 +98,39 @@ export function Slider({
     </label>
   );
 }
+
+export function Switch({
+  label,
+  checked,
+  onChange,
+}: {
+  label: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+}) {
+  return (
+    <label className="group flex items-center gap-3 text-[13px]">
+      <span className="w-[72px] shrink-0 text-fd-muted-foreground">
+        {label}
+      </span>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        onClick={() => onChange(!checked)}
+        className={`relative h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
+          checked ? 'bg-fd-primary' : 'bg-fd-border'
+        }`}
+      >
+        <span
+          className={`block h-4 w-4 rounded-full bg-fd-background shadow-sm transition-transform ${
+            checked ? 'translate-x-4' : 'translate-x-0'
+          }`}
+        />
+      </button>
+      <span className="text-fd-foreground">
+        {checked ? 'On' : 'Off'}
+      </span>
+    </label>
+  );
+}

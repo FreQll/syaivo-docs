@@ -9,6 +9,9 @@
     "glyphs",
     "mesh-gradient",
     "waves",
-    "particles"
+    "particles",
+    "cybergrid",
+    "dither",
+    "hyper-jump"
   ]
 }

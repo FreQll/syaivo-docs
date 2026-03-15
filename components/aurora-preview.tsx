@@ -3,7 +3,7 @@
 import { useRef, useState, useCallback } from "react";
 import { Aurora } from "syaivo/react";
 import type { AuroraEffect } from "syaivo";
-import { PreviewShell, Slider } from "./preview-shell";
+import { PreviewShell, Slider, Switch } from "./preview-shell";
 
 export function AuroraPreview() {
   const effectRef = useRef<AuroraEffect | null>(null);
@@ -13,6 +13,7 @@ export function AuroraPreview() {
   const [curtainWidth, setCurtainWidth] = useState(0.3);
   const [speed, setSpeed] = useState(1);
   const [opacity, setOpacity] = useState(0.9);
+  const [scanlines, setScanlines] = useState(false);
 
   const update = useCallback((patch: Parameters<AuroraEffect["update"]>[0]) => {
     effectRef.current?.update(patch);
@@ -81,6 +82,8 @@ export function AuroraPreview() {
               update({ opacity: v });
             }}
           />
+          <Switch label="Scanlines" checked={scanlines}
+            onChange={(v) => { setScanlines(v); update({ scanlines: v }); }} />
         </>
       }
     >
@@ -93,6 +96,7 @@ export function AuroraPreview() {
         curtainWidth={curtainWidth}
         speed={speed}
         opacity={opacity}
+        scanlines={scanlines}
         animated
         style={{ position: "absolute", inset: 0 }}
       />

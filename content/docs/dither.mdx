@@ -1,0 +1,56 @@
+---
+title: Dither
+description: Animated dithered gradient with Bayer or dot patterns.
+icon: GridFour
+---
+
+## Preview
+
+<DitherPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createDither } from "syaivo";
+
+const effect = createDither({
+  colors: ["#c084fc", "#818cf8", "#38bdf8", "#2dd4bf"],
+  pixelSize: 4,
+  pattern: "bayer",
+  angle: 135,
+});
+
+effect.mount(document.getElementById("hero")!);
+```
+
+```tsx tab="React"
+import { Dither } from "syaivo/react";
+
+<Dither
+  colors={["#c084fc", "#818cf8", "#38bdf8", "#2dd4bf"]}
+  pixelSize={4}
+  pattern="bayer"
+  angle={135}
+  style={{ position: "absolute", inset: 0 }}
+/>;
+```
+
+## Options
+
+| Option                 | Type                | Default              | Description                    |
+| ---------------------- | ------------------- | -------------------- | ------------------------------ |
+| `colors`               | `string[]`          | Purple → blue → teal | Gradient color stops           |
+| `backgroundColor`      | `string`            | `"#0a0a0a"`          | Canvas background              |
+| `pixelSize`            | `number`            | `4`                  | Size of each dither block (px) |
+| `pattern`              | `"bayer" \| "dots"` | `"bayer"`            | Dithering pattern              |
+| `angle`                | `number`            | `135`                | Gradient angle in degrees      |
+| `noiseIntensity`       | `number`            | `0.3`                | Noise distortion amount (0–1)  |
+| `speed`                | `number`            | `1`                  | Animation speed multiplier     |
+| `animated`             | `boolean`           | `true`               | Enable animation               |
+| `respectReducedMotion` | `boolean`           | `true`               | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ pixelSize: 6, pattern: "dots" });
+```

@@ -3,7 +3,7 @@
 import { useRef, useState, useCallback } from 'react';
 import { Particles } from 'syaivo/react';
 import type { ParticlesEffect } from 'syaivo';
-import { PreviewShell, Slider } from './preview-shell';
+import { PreviewShell, Slider, Switch } from './preview-shell';
 
 export function ParticlesPreview() {
   const effectRef = useRef<ParticlesEffect | null>(null);
@@ -13,6 +13,7 @@ export function ParticlesPreview() {
   const [minRadius, setMinRadius] = useState(1);
   const [maxRadius, setMaxRadius] = useState(3);
   const [mouseRadius, setMouseRadius] = useState(100);
+  const [mouseInteraction, setMouseInteraction] = useState(true);
 
   const update = useCallback(
     (patch: Parameters<ParticlesEffect['update']>[0]) => {
@@ -39,6 +40,8 @@ export function ParticlesPreview() {
           <Slider label="Mouse R" value={mouseRadius} min={30} max={250} step={10}
             format={(v) => `${v}px`}
             onChange={(v) => { setMouseRadius(v); update({ mouseRadius: v }); }} />
+          <Switch label="Mouse" checked={mouseInteraction}
+            onChange={(v) => { setMouseInteraction(v); update({ mouseInteraction: v }); }} />
         </>
       }
     >
@@ -50,7 +53,7 @@ export function ParticlesPreview() {
         maxSpeed={maxSpeed}
         minRadius={minRadius}
         maxRadius={maxRadius}
-        mouseInteraction
+        mouseInteraction={mouseInteraction}
         mouseRadius={mouseRadius}
         animated
         style={{ position: 'absolute', inset: 0 }}

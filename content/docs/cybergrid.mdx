@@ -1,0 +1,58 @@
+---
+title: CyberGrid
+description: Retro perspective grid racing toward the horizon.
+icon: GridNine
+---
+
+## Preview
+
+<CyberGridPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createCyberGrid } from 'syaivo';
+
+const effect = createCyberGrid({
+  gridColor: '#ff80ff',
+  backgroundColor: '#001a33',
+  speed: 1,
+  floorMode: false,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { CyberGrid } from 'syaivo/react';
+
+<CyberGrid
+  gridColor="#ff80ff"
+  backgroundColor="#001a33"
+  speed={1}
+  floorMode={false}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `gridColor` | `string` | `"#ff80ff"` | Grid line color |
+| `backgroundColor` | `string` | `"#001a33"` | Canvas background |
+| `intensity` | `number` | `1` | Brightness of the grid (0–1) |
+| `anchor` | `number` | `-0.5` | Horizontal anchor offset (-1 to 1) |
+| `fov` | `number` | `0.2` | Horizon position (-1 to 1) |
+| `speed` | `number` | `1` | Scroll speed multiplier |
+| `floorMode` | `boolean` | `false` | Render grid on bottom half only |
+| `lineWidth` | `number` | `1` | Line thickness multiplier |
+| `pixelated` | `boolean` | `false` | Pixelated retro look |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ speed: 2, intensity: 0.6 });
+```
