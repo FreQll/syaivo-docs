@@ -1,0 +1,61 @@
+---
+title: Lumina
+description: Soft, diagonal beams of light fade gently across a dark surface, creating a premium, cinematic atmosphere. A subtle grain texture overlays the scene, giving depth and a refined, tactile feel.
+icon: Flashlight
+---
+
+## Preview
+
+<LuminaPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createLumina } from 'syaivo';
+
+const effect = createLumina({
+  beamColor: '#ffffff',
+  beams: 5,
+  angle: 35,
+  intensity: 0.18,
+  grain: 0.06,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { Lumina } from 'syaivo/react';
+
+<Lumina
+  beamColor="#ffffff"
+  beams={5}
+  angle={35}
+  intensity={0.18}
+  grain={0.06}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `backgroundColor` | `string` | `"#0a0a0a"` | Background color |
+| `beamColor` | `string` | `"#ffffff"` | Beam highlight color |
+| `beams` | `number` | `5` | Number of light beams |
+| `angle` | `number` | `35` | Beam direction in degrees (0 = right, 90 = down) |
+| `intensity` | `number` | `0.18` | Maximum beam brightness (0–1) |
+| `softness` | `number` | `0.15` | Beam softness — larger = more diffuse (0.05–0.5) |
+| `grain` | `number` | `0.06` | Grain intensity (0–1) |
+| `grainSpeed` | `number` | `1` | Grain shimmer speed multiplier |
+| `beamSpeed` | `number` | `1` | Beam drift speed multiplier |
+| `speed` | `number` | `1` | Global speed multiplier |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ beams: 8, intensity: 0.3 });
+```

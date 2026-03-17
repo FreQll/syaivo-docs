@@ -6,12 +6,14 @@
     "---Effects---",
     "topography",
     "aurora",
+    "dither-warp",
     "glyphs",
     "mesh-gradient",
+    "lumina",
     "cybergrid",
     "dither",
     "hyper-jump",
-    "waves",
-    "particles"
+    "particles",
+    "waves"
   ]
 }

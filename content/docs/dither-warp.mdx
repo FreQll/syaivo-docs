@@ -1,0 +1,68 @@
+---
+title: Dither Warp
+description: Animated dithered shape distortions with multiple pattern modes. Inspired by the Fumadocs card effect.
+icon: Waveform
+---
+
+## Preview
+
+<DitherWarpPreview />
+
+Inspired by the [Fumadocs](https://fumadocs.vercel.app) card effect.
+
+## Usage
+
+```ts tab="Vanilla"
+import { createDitherWarp } from "syaivo";
+
+const effect = createDitherWarp({
+  colorFront: "#00b2ff",
+  colorBack: "#000000",
+  shape: "warp",
+  pattern: "4x4",
+  pixelSize: 3,
+});
+
+effect.mount(document.getElementById("hero")!);
+```
+
+```tsx tab="React"
+import { DitherWarp } from "syaivo/react";
+
+<DitherWarp
+  colorFront="#00b2ff"
+  colorBack="#000000"
+  shape="warp"
+  pattern="4x4"
+  pixelSize={3}
+  style={{ position: "absolute", inset: 0 }}
+/>;
+```
+
+## Options
+
+| Option                 | Type                | Default     | Description                      |
+| ---------------------- | ------------------- | ----------- | -------------------------------- |
+| `colorFront`           | `string`            | `"#00b2ff"` | Foreground color                 |
+| `colorBack`            | `string`            | `"#000000"` | Background color                 |
+| `shape`                | `DitherWarpShape`   | `"warp"`    | Shape mode (see below)           |
+| `pattern`              | `DitherWarpPattern` | `"4x4"`     | Dithering pattern (see below)    |
+| `pixelSize`            | `number`            | `3`         | Pixel block size (px)            |
+| `scale`                | `number`            | `1`         | Shape scale (higher = zoomed in) |
+| `speed`                | `number`            | `1`         | Animation speed multiplier       |
+| `animated`             | `boolean`           | `true`      | Enable animation                 |
+| `respectReducedMotion` | `boolean`           | `true`      | Honor `prefers-reduced-motion`   |
+
+### Shape Modes
+
+`"simplex"` | `"warp"` | `"dots"` | `"wave"` | `"ripple"` | `"swirl"` | `"sphere"`
+
+### Dither Patterns
+
+`"random"` | `"2x2"` | `"4x4"` | `"8x8"`
+
+## Dynamic Updates
+
+```ts
+effect.update({ shape: "swirl", pixelSize: 5 });
+```
