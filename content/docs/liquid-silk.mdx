@@ -1,0 +1,73 @@
+---
+title: Liquid Silk
+description: Iridescent folds of light ripple across a dark surface like oil on water. Smooth, reflective, and endlessly shifting.
+icon: Drop
+---
+
+## Preview
+
+<LiquidSilkPreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createLiquidSilk } from 'syaivo';
+
+const effect = createLiquidSilk({
+  colors: ['#00e5ff', '#d500f9', '#0a1a5c', '#00d4aa', '#f050ff'],
+  scale: 1.2,
+  specular: 0.65,
+  speed: 1,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { useEffect, useRef } from 'react';
+import { createLiquidSilk } from 'syaivo';
+
+function LiquidSilkBg() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const effect = createLiquidSilk({
+      colors: ['#00e5ff', '#d500f9', '#0a1a5c', '#00d4aa', '#f050ff'],
+      scale: 1.2,
+      specular: 0.65,
+      speed: 1,
+    });
+    effect.mount(ref.current!);
+    return () => effect.destroy();
+  }, []);
+  return <div ref={ref} style={{ position: 'absolute', inset: 0 }} />;
+}
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `backgroundColor` | `string` | `"#020208"` | Background color |
+| `colors` | `string[]` | neon cyan, magenta, deep blue | Iridescent color stops |
+| `scale` | `number` | `1.2` | Noise scale — higher = more folds |
+| `normalStrength` | `number` | `1.4` | Normal strength — higher = sharper ridges |
+| `specular` | `number` | `0.65` | Specular intensity |
+| `shininess` | `number` | `16` | Specular exponent |
+| `ambient` | `number` | `0.1` | Ambient light (0–1) |
+| `diffuse` | `number` | `0.55` | Diffuse light (0–1) |
+| `blur` | `number` | `0` | Blur radius in px (0 = no blur) |
+| `grain` | `number` | `0` | Film grain intensity (0–1) |
+| `speed` | `number` | `1` | Speed multiplier |
+| `opacity` | `number` | `1` | Global opacity |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ scale: 2, specular: 0.9 });
+```
+
+## Example
+
+<LiquidSilkHero />

@@ -1,0 +1,73 @@
+---
+title: Halftone
+description: Dots breathe in and out along flowing ribbons, turning noise into rhythm. Print-era aesthetics meet fluid motion.
+icon: CircleHalf
+---
+
+## Preview
+
+<HalftonePreview />
+
+## Usage
+
+```ts tab="Vanilla"
+import { createHalftone } from 'syaivo';
+
+const effect = createHalftone({
+  dotColor: '#a5f3fc',
+  pixelSize: 9,
+  contrast: 1.6,
+  angle: 135,
+  speed: 0.8,
+});
+
+effect.mount(document.getElementById('hero')!);
+```
+
+```tsx tab="React"
+import { Halftone } from 'syaivo/react';
+
+<Halftone
+  dotColor="#a5f3fc"
+  pixelSize={9}
+  contrast={1.6}
+  angle={135}
+  speed={0.8}
+  style={{ position: 'absolute', inset: 0 }}
+/>
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `dotColor` | `string` | `"#a5f3fc"` | Dot fill color |
+| `colors` | `string[]` | `[]` | Optional palette — dots interpolate across it |
+| `backgroundColor` | `string` | `"#0a0a0a"` | Canvas background |
+| `pixelSize` | `number` | `9` | Dot cell size in px |
+| `dotMin` | `number` | `0.06` | Min dot radius (fraction of cell) |
+| `dotMax` | `number` | `0.48` | Max dot radius (fraction of cell) |
+| `dotThreshold` | `number` | `0.14` | Skip dots below this shade |
+| `contrast` | `number` | `1.6` | Shade-to-radius gamma |
+| `invert` | `boolean` | `false` | Invert shade mapping |
+| `angle` | `number` | `135` | Gradient angle in degrees |
+| `noiseIntensity` | `number` | `0.35` | Animated noise distortion |
+| `opacity` | `number` | `0.9` | Global dot opacity |
+| `speed` | `number` | `0.8` | Animation speed multiplier |
+| `waveFrequency` | `number` | `2.8` | Number of flowing wave bands |
+| `waveAmplitude` | `number` | `0.12` | Vertical wave displacement (0–1) |
+| `waveSpeed` | `number` | `1.1` | Ribbon phase speed |
+| `ribbonWidth` | `number` | `0.14` | Ribbon thickness (fraction of height) |
+| `ribbonSoftness` | `number` | `2.2` | Ribbon edge sharpness |
+| `animated` | `boolean` | `true` | Enable animation |
+| `respectReducedMotion` | `boolean` | `true` | Honor `prefers-reduced-motion` |
+
+## Dynamic Updates
+
+```ts
+effect.update({ pixelSize: 12, contrast: 2 });
+```
+
+## Example
+
+<HalftoneHero />

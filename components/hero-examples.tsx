@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef, useEffect } from "react";
+import { createLiquidSilk } from "syaivo";
 import { HeroExample } from "./hero-example";
 import { Particles } from "syaivo/react";
 import { Waves } from "syaivo/react";
@@ -12,6 +14,7 @@ import { Dither } from "syaivo/react";
 import { HyperJump } from "syaivo/react";
 import { Lumina } from "syaivo/react";
 import { DitherWarp } from "syaivo/react";
+import { Halftone } from "syaivo/react";
 
 const fill = { position: "absolute" as const, inset: 0 };
 
@@ -209,6 +212,56 @@ export function DitherWarpHero() {
         pixelSize={2}
         scale={0.6}
         speed={0.3}
+        animated
+        style={fill}
+      />
+    </HeroExample>
+  );
+}
+
+function LiquidSilkCanvas() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const effect = createLiquidSilk({
+      backgroundColor: "#020208",
+      colors: ["#00e5ff", "#d500f9", "#0a1a5c", "#00d4aa", "#f050ff"],
+      scale: 1,
+      specular: 0.5,
+      normalStrength: 1.2,
+      speed: 0.8,
+      opacity: 0.7,
+      animated: true,
+    });
+    effect.mount(el);
+    return () => effect.destroy();
+  }, []);
+  return <div ref={ref} style={fill} />;
+}
+
+export function LiquidSilkHero() {
+  return (
+    <HeroExample>
+      <LiquidSilkCanvas />
+    </HeroExample>
+  );
+}
+
+export function HalftoneHero() {
+  return (
+    <HeroExample>
+      <Halftone
+        dotColor="#BEB36F"
+        backgroundColor="#191919"
+        pixelSize={4}
+        contrast={1}
+        angle={135}
+        noiseIntensity={0.2}
+        opacity={0.2}
+        speed={0.6}
+        waveFrequency={2.5}
+        ribbonWidth={0.18}
         animated
         style={fill}
       />
