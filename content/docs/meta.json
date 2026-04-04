@@ -3,6 +3,8 @@
   "pages": [
     "---Introduction---",
     "index",
+    "---Examples---",
+    "examples",
     "---Effects---",
     "topography",
     "aurora",

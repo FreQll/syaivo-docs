@@ -20,6 +20,7 @@ import { LuminaPreview } from '@/components/lumina-preview';
 import { DitherWarpPreview } from '@/components/dither-warp-preview';
 import { LiquidSilkPreview } from '@/components/liquid-silk-preview';
 import { HalftonePreview } from '@/components/halftone-preview';
+import { Showcase } from '@/components/showcase';
 import {
   ParticlesHero, WavesHero, TopographyHero, GlyphsHero,
   MeshGradientHero, AuroraHero, CyberGridHero, DitherHero,
@@ -42,7 +43,7 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <MDX components={{ ...PhosphorIcons, ...defaultMdxComponents, ParticlesPreview, WavesPreview, TopographyPreview, GlyphsPreview, MeshGradientPreview, AuroraPreview, CyberGridPreview, DitherPreview, HyperJumpPreview, LuminaPreview, DitherWarpPreview, LiquidSilkPreview, HalftonePreview, ParticlesHero, WavesHero, TopographyHero, GlyphsHero, MeshGradientHero, AuroraHero, CyberGridHero, DitherHero, HyperJumpHero, LuminaHero, DitherWarpHero, LiquidSilkHero, HalftoneHero }} />
+        <MDX components={{ ...PhosphorIcons, ...defaultMdxComponents, ParticlesPreview, WavesPreview, TopographyPreview, GlyphsPreview, MeshGradientPreview, AuroraPreview, CyberGridPreview, DitherPreview, HyperJumpPreview, LuminaPreview, DitherWarpPreview, LiquidSilkPreview, HalftonePreview, ParticlesHero, WavesHero, TopographyHero, GlyphsHero, MeshGradientHero, AuroraHero, CyberGridHero, DitherHero, HyperJumpHero, LuminaHero, DitherWarpHero, LiquidSilkHero, HalftoneHero, Showcase }} />
       </DocsBody>
     </DocsPage>
   );
