@@ -18,7 +18,6 @@ import { Aurora } from "syaivo/react";
 import { CyberGrid } from "syaivo/react";
 import { Dither } from "syaivo/react";
 import { HyperJump } from "syaivo/react";
-import { Lumina } from "syaivo/react";
 import { DitherWarp } from "syaivo/react";
 import { Halftone } from "syaivo/react";
 
@@ -203,22 +202,7 @@ const effects: EffectEntry[] = [
       />
     ),
   },
-  {
-    name: "Lumina",
-    node: (
-      <Lumina
-        beamColor="#ffffff"
-        backgroundColor="#09090b"
-        beams={5}
-        angle={35}
-        intensity={0.2}
-        softness={0.2}
-        grain={0.04}
-        animated
-        style={fill}
-      />
-    ),
-  },
+
   {
     name: "Liquid Silk",
     node: <LiquidSilkBg />,
